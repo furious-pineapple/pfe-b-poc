@@ -82,6 +82,3 @@ export default class Foo {
     console.log("Foo is alive and well");
   }
 }
-
-console.log("Foo class has declared");
-new Foo().speak();

@@ -3,15 +3,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const WrapperPlugin = require("wrapper-webpack-plugin");
 const glob = require("glob");
 
-const patterFlyElements = [
-  "./node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
-  "./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
-  "./node_modules/@patternfly/pfelement/dist/pfelement.umd.js",
-  ...glob.sync("./node_modules/@patternfly/pfe-*/dist/pfe-*.js", {
-    ignore: ["./node_modules/@patternfly/pfe-*/dist/pfe-*.*.js"]
-  })
-];
-
 module.exports = grunt => {
   grunt.initConfig({
     webpack: {
@@ -20,8 +11,14 @@ module.exports = grunt => {
         entry: {
           import: "./src/import/index.js",
           inline: "./src/inline/index.js",
-          order: ["./src/inline/foo.js", "./src/inline/bar.js"],
-          pfe: patterFlyElements
+          pfe: [
+            "./node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
+            "./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
+            "./node_modules/@patternfly/pfelement/dist/pfelement.umd.js",
+            ...glob.sync("./node_modules/@patternfly/pfe-*/dist/pfe-*.js", {
+              ignore: ["./node_modules/@patternfly/pfe-*/dist/pfe-*.*.js"]
+            })
+          ]
         },
         output: {
           path: path.resolve(__dirname, "dist"),

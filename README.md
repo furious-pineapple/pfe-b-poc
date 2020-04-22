@@ -1,15 +1,13 @@
 # pfe-b-poc
 
-## Notes
+## About
 
-1. Cannot use umb file if we want to remove duplication
-2. Make the bundlers tools easier by using modules
+This is a quick example of how webpack can be used to bundle pfe and remove code duplication.
 
-## Suggestions
+### Note
 
-- Move polyfills to their own modules.
-  - Makes bundlers job easier
-- Don't use umd file's, instead use .js files.
+1. Move polyfills into modules.
+2. Don't use UMD files. The Bundler jobs becomes harder when the modules are already
 
 ## Bundlers
 

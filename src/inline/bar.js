@@ -82,6 +82,3 @@ export default class Bar {
     console.log("Bar is tired but still well");
   }
 }
-
-console.log("Bar class has declared");
-new Bar().speak();
