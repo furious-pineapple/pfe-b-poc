@@ -21,8 +21,7 @@ module.exports = grunt => {
           // Add header and footer to each bundle
           new WrapperPlugin({
             header: 'window.addEventListener("DOMContentLoaded", function() {',
-            footer: "});",
-            test: "/.js$/"
+            footer: "});"
           })
         ]
       }

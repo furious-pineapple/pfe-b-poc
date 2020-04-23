@@ -11,4 +11,4 @@ export { default as PfeIconPanel } from "@patternfly/pfe-icon-panel/dist/pfe-ico
 export { default as PfeModal } from "@patternfly/pfe-modal/dist/pfe-modal";
 export { default as PfeNavigation } from "@patternfly/pfe-navigation/dist/pfe-navigation.js";
 export { default as PfeTabs } from "@patternfly/pfe-tabs/dist/pfe-tabs";
-export { default as PFElement } from "@patternfly/pfe-pfelement/dist/pfe-pfelement.js";
+export { default as PFElement } from "@patternfly/pfelement/dist/pfelement.js";
