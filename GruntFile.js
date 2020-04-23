@@ -1,7 +1,6 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const WrapperPlugin = require("wrapper-webpack-plugin");
-const glob = require("glob");
 
 module.exports = grunt => {
   grunt.initConfig({
@@ -9,20 +8,12 @@ module.exports = grunt => {
       myConfig: {
         mode: "production",
         entry: {
-          import: "./src/import/index.js",
-          inline: "./src/inline/index.js",
-          pfe: [
-            "./node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
-            "./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
-            "./node_modules/@patternfly/pfelement/dist/pfelement.umd.js",
-            ...glob.sync("./node_modules/@patternfly/pfe-*/dist/pfe-*.js", {
-              ignore: ["./node_modules/@patternfly/pfe-*/dist/pfe-*.*.js"]
-            })
-          ]
+          pfe: "./src/pfe.js"
         },
         output: {
           path: path.resolve(__dirname, "dist"),
-          filename: "[name].js"
+          filename: "[name].js",
+          libraryTarget: "umd"
         },
         plugins: [
           // Cleans dist directory on each build
@@ -33,8 +24,7 @@ module.exports = grunt => {
             footer: "});",
             test: "/.js$/"
           })
-        ],
-        devtool: "source-map"
+        ]
       }
     }
   });
